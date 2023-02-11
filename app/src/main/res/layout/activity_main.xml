@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:padding="18dp"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
     <TextView
-        android:id="@+id/today_date"
+        android:id="@+id/todayDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -19,7 +20,7 @@
         android:id="@+id/horizontal_line"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_below="@+id/today_date"
+        android:layout_below="@+id/todayDate"
         android:layout_marginTop="12dp"
         android:background="@color/purple_200" />
 
@@ -35,18 +36,21 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/value_days"
+        android:id="@+id/valueDays"
         android:layout_width="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/dias_restants"
         android:layout_marginTop="16dp"
         android:textSize="22sp"
-        android:text="365 dias"
+        android:text="@string/_365_dias"
         android:layout_height="wrap_content"/>
 
 
     <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
+        android:id="@+id/btnConfirm"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
 
