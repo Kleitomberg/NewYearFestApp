@@ -42,7 +42,7 @@
         android:layout_below="@+id/dias_restants"
         android:layout_marginTop="16dp"
         android:textSize="22sp"
-        android:text="@string/_365_dias"
+        android:text="@string/dias"
         android:layout_height="wrap_content"/>
 
 
