@@ -13,8 +13,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import br.dev.android.newyearfest.R;
+import br.dev.android.newyearfest.constant.FimAnoContants;
+import br.dev.android.newyearfest.data.SecurityPreference;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private SecurityPreference mSecurityPreference;
 
     private ViewHolder mViewHolder = new ViewHolder();
     private static SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
@@ -23,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        this.mSecurityPreference = new SecurityPreference(this);
         this.mViewHolder.valueDays = findViewById(R.id.valueDays);
         this.mViewHolder.textToday = findViewById(R.id.todayDate);
         this.mViewHolder.confirmbtn = findViewById(R.id.btnConfirm);
@@ -40,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         this.mViewHolder.valueDays.setText(daysleft);
 
+        this.verifyPresence();
 
     }
 
@@ -64,6 +69,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int maxDay = calenderLastDay.getActualMaximum(Calendar.DAY_OF_YEAR);
 
         return maxDay - hoje;
+    }
+
+    private void verifyPresence(){
+
+        String precense = this.mSecurityPreference.getStringInPreferenfce(FimAnoContants.PRESENCE_KEY);
+
+        if (precense.equals("")){
+            this.mViewHolder.confirmbtn.setText(getString(R.string.no_is_confirm));
+        } else if (precense.equals(FimAnoContants.CONFIRMATION_YES)){
+            this.mViewHolder.confirmbtn.setText(R.string.is_confirm);
+
+        } else{
+            this.mViewHolder.confirmbtn.setText(R.string.no_confirm);
+        }
+
     }
 
     private static class ViewHolder {

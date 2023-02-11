@@ -54,6 +54,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
 
-        android:text="@string/sim_n_o_n_o_confirmado" />
+        android:text="@string/is_confirm" />
 
 </RelativeLayout>
