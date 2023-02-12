@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/date_today"
-        android:textSize="18sp" />
+        android:textSize="20sp" />
 
     <View
         android:id="@+id/horizontal_line"
@@ -33,7 +33,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
         android:text="@string/dias_restantes_para_o_fim_do_ano"
-        android:textSize="20sp" />
+        android:textSize="22sp" />
 
     <TextView
         android:id="@+id/valueDays"
@@ -41,14 +41,16 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/dias_restants"
         android:layout_marginTop="16dp"
-        android:textSize="22sp"
+        android:textSize="30sp"
         android:text="@string/dias"
+        android:textColor="@color/colorPrimary"
         android:layout_height="wrap_content"/>
 
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnConfirm"
         android:gravity="center"
+        android:padding="14dp"
         android:layout_centerHorizontal="true"
         android:layout_width="320dp"
         android:layout_height="wrap_content"

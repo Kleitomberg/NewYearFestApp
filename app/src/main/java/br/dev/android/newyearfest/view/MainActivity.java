@@ -44,15 +44,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         this.mViewHolder.valueDays.setText(daysleft);
 
-        this.verifyPresence();
+        ///this.verifyPresence();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        this.verifyPresence();
     }
 
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btnConfirm) {
+            String precense = this.mSecurityPreference.getStringInPreferenfce(FimAnoContants.PRESENCE_KEY);
+
             //ação vinda do btn
             Intent intent = new Intent(this, DetailsActivity.class);
+            intent.putExtra(FimAnoContants.PRESENCE_KEY,precense);
             startActivity(intent);
 
 

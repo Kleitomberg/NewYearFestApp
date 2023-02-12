@@ -27,6 +27,35 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        this.verifyPresence();
+
+    }
+
+    private void verifyPresence(){
+
+       // String precense = this.mSecurityPreference.getStringInPreferenfce(FimAnoContants.PRESENCE_KEY);
+        Bundle extras = getIntent().getExtras();
+
+        if (extras != null){
+            String precense = extras.getString(FimAnoContants.PRESENCE_KEY);
+
+            if (precense.equals("") || precense == null){
+                this.mViewHolder.confirmP.setChecked(false);
+            } else if (precense.equals(FimAnoContants.CONFIRMATION_YES)){
+                this.mViewHolder.confirmP.setChecked(true);
+            } else{
+                this.mViewHolder.confirmP.setChecked(false);
+
+            }
+        }
+
+
+
+    }
+
+    @Override
     public void onClick(View view) {
 
         if (view.getId() == R.id.checkboxConfirm){
